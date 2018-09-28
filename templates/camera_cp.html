@@ -17,7 +17,11 @@
 
   captureButton.addEventListener('click', () => {
     context.drawImage(player, 0, 0, canvas.width, canvas.height);
-  });
+
+  // Stops video functionality after capture
+  //player.srcObject.getVideoTracks().forEach(track => track.stop());
+});
+  // Send captured image to a backend for image parsing
 
   navigator.mediaDevices.getUserMedia(constraints)
     .then((stream) => {

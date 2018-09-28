@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request
+from image_rec import Flier
 
 app = Flask(__name__)
 
 @app.route('/')
 def camera():
+	#image = request.args.get('image')
+	#print "IMAGE: ", image
 	return render_template('camera_cp.html')
 
 @app.route('/submitted', methods=['POST'])
