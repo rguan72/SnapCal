@@ -5,9 +5,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def camera():
-	#image = request.args.get('image')
-	#print "IMAGE: ", image
 	return render_template('camera_cp.html')
+
+@app.route('/pictaken', methods=['POST', 'GET'])
+def pictaken():
+	image = request.camera['image']
+	print "IMAGE: ", image
+	return render_template('pictaken.html')
+
 
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
