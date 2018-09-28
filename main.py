@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def camera():
-	return render_template('camera.html')
+	return render_template('camera_cp.html')
 
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
