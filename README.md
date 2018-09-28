@@ -3,7 +3,7 @@ College student organization fairs can get really hectic:
 ![alt text][festifall]
 
 [festifall]: https://github.com/rguan72/SnapCal/blob/master/md_images/festifall.jpg
-UMICH festifall
+<h1 align="center">*UMICH Festifall*</h4>
 
 During these fairs, you often pick up way too many fliers for events like mass meetings:
 ![alt text][fliers]
@@ -13,11 +13,11 @@ During these fairs, you often pick up way too many fliers for events like mass m
 # What SnapCal does
 In 2018, you shouldn't have to manually enter the dates of the mass meetings you want to attend. You could add images to the calendar, but what if you want event alerts?
 
-With SnapCal, you can just take a picture of each flier, and the event dates will be automatically added to your calendar. SnapCal uses computer vision (including the google cloud platform cloud vision api) and the google calendar api to accomplish this.
+With SnapCal, you can an event on a flier to your calendar with just one click. SnapCal uses computer vision (including the Google Cloud Platform and Cloud Vision API) and the Google Calendar API to extract event dates from a photo you take on your device.
 
 # Development prerequisites
 Make sure you have pip installed on your system.
-Create a virtual environment with python version 2.7.
+Create a virtual environment with Python version 2.7.
 
 
 #Install necessary packages.
