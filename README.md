@@ -3,7 +3,7 @@ College student organization fairs can get really hectic:
 ![alt text][festifall]
 
 [festifall]: https://github.com/rguan72/SnapCal/blob/master/md_images/festifall.jpg
-<h1 align="center">*UMICH Festifall*</h4>
+<br align="center">*UMICH Festifall*</br>
 
 During these fairs, you often pick up way too many fliers for events like mass meetings:
 ![alt text][fliers]
