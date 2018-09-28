@@ -1,5 +1,14 @@
 # SnapCal Web
 College student organization fairs can get really hectic:
+![alt text][festifall]
+
+[festifall]: https://github.com/rguan72/SnapCal/blob/master/md_images/festifall.jpg
+UMICH festifall
+
+During these fairs, you often pick up way too many fliers for events like mass meetings:
+![alt text][fliers]
+
+[fliers]: https://github.com/rguan72/SnapCal/blob/master/md_images/IMG_0779.JPG
 
 # Development prerequisites
 Make sure you have pip installed on your system.
