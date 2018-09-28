@@ -1,7 +1,20 @@
 {% extends "layout.html" %}
 {% block content %}
 This is the camera!
+
+<input type="file" accept="image/*" id="file-input">
+<script>
+  const fileInput = document.getElementById('file-input');
+
+  fileInput.addEventListener('change', (e) => doSomethingWithFiles(e.target.files));
+</script>
+<input type="file" accept="image/*" capture>
+<input type="file" accept="image/*" capture="user">
+<input type="file" accept="image/*" capture="environment">
+
+<!--
 <div id="target">You can drag an image file here</div>
+
 <script>
   const target = document.getElementById('target');
 
@@ -17,7 +30,28 @@ This is the camera!
     e.preventDefault();
 
     e.dataTransfer.dropEffect = 'copy';
-  })
+  });
 </script>
+-->
+<video id="player" controls autoplay></video>
+<script>
+  const player = document.getElementById('player');
+
+  const constraints = {
+    video: true,
+  };
+
+  navigator.mediaDevices.getUserMedia(constraints)
+    .then((stream) => {
+      player.srcObject = stream;
+    });
+</script>
+
+<!--
+<div id="target">You can drag an image file here</div>
+<script type=text/javascript src="{{
+  url_for('static', filename='camera.js')}}"></script>
+
 <input type="file" accept="image/*" capture="environment">
+-->
 {% endblock %}
