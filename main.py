@@ -15,7 +15,7 @@ def camera():
 	#test_im = Flier(encoded) # using base64
 	test_im = Flier(image_content) # using file
 	event_text = test_im.ocr()
-	add_event(event_text)
+	add_event("Event at 10 am")
 	### TESTING END
 	return render_template('camera_cp.html')
 

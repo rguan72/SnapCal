@@ -29,4 +29,4 @@ with io.open(filename, 'rb') as image_file:
 #encoded_content = encoded.read()
 #test_im = Flier(encoded) # using base64
 test_im = Flier(image_content) # using file
-test_im.ocr()
+print(test_im.ocr())
