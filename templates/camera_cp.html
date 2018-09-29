@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 
+
 <video id="player" controls autoplay></video>
 <button id="capture">Capture</button>
 <canvas id="canvas" width=320 height=240></canvas>
@@ -17,15 +18,29 @@
 
   captureButton.addEventListener('click', () => {
     context.drawImage(player, 0, 0, canvas.width, canvas.height);
+    
+    var data = canvas.toDataURL("image/jpeg", 0.7);
+    // Send captured image to a backend for image parsing
+    sendImageData(data);
+    // Stops video functionality after capture
+    //player.srcObject.getVideoTracks().forEach(track => track.stop());
+  });
 
-  // Stops video functionality after capture
-  //player.srcObject.getVideoTracks().forEach(track => track.stop());
-});
-  // Send captured image to a backend for image parsing
 
   navigator.mediaDevices.getUserMedia(constraints)
     .then((stream) => {
       player.srcObject = stream;
     });
+
+  // Sends image data to the server
+  function sendImageData(data) {
+      $.ajax({
+        type: "POST",
+        url: "/receive",
+        data: {"image" : data},
+        success: function() {console.log("Success!");},
+        dataType: "text"
+      });
+  }
 </script>
 {% endblock %}
