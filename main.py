@@ -1,10 +1,22 @@
 from flask import Flask, render_template, request
 from image_rec import Flier
+from add_cal import add_event
 
 app = Flask(__name__)
 
 @app.route('/')
 def camera():
+	### TESTING
+	filename = '/home/richard/Downloads/IMG_0735.JPG'
+	with io.open(filename, 'rb') as image_file:
+	    image_content = image_file.read()
+	#encoded = base64.b64encode(io.open(filename, 'rb'))
+	#encoded_content = encoded.read()
+	#test_im = Flier(encoded) # using base64
+	test_im = Flier(image_content) # using file
+	event_text = test_im.ocr()
+	add_event(event_text)
+	### TESTING END
 	return render_template('camera_cp.html')
 
 @app.route('/pictaken', methods=['POST', 'GET'])
