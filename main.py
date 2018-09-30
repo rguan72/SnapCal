@@ -30,8 +30,10 @@ def route_receive():
     data = request.form
     image = data["image"]
     # Chop off the first "english" part of the string so it's just b64
-    image = image[image.find("base64,")+7:]
+    b64image = image[image.find("base64,")+7:]
+    image = base64.b64decode(b64image)
     flier = Flier(image)
+    flier.ocr()
     print "Grabbed image!"
     save_undecoded_image(image, "image.jpg")
     print "Saved"
