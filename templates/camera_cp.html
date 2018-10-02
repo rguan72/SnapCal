@@ -18,7 +18,7 @@
 
   captureButton.addEventListener('click', () => {
     context.drawImage(player, 0, 0, canvas.width, canvas.height);
-    
+
     var data = canvas.toDataURL("image/jpeg", 0.7);
     // Send captured image to a backend for image parsing
     sendImageData(data);
