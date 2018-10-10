@@ -10,7 +10,7 @@ class Flier(object):
         #vision_client = vision.Client()
         self.image = image
 
-    def ocr(self):
+    def ocr_text(self):
         from google.cloud.vision import types
         from google.cloud import vision
 

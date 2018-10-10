@@ -1,6 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
 
+<!-- Upload image -->
+<!-- <input type="file" onchange="uploadImage()"><br>
+<script>
+  function uploadImage(file) {
+      $.ajax({
+        type: "POST",
+        url: "/receive",
+        data: {"image" : data},
+        success: function() {console.log("Success!");},
+        dataType: "text"
+      });
+    }
+</script> -->
 
 <video id="player" controls autoplay></video>
 <button id="capture">Capture</button>

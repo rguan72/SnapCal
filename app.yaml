@@ -13,3 +13,5 @@ libraries:
   version: latest
 - name: six
   version: latest
+- name: grpcio
+  version: latest
