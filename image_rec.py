@@ -1,3 +1,5 @@
+# Contains functions to do OCR on the given picture
+
 class Flier(object):
     def __init__(self, image):
         # from google.auth import app_engine
