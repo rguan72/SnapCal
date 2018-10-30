@@ -29,7 +29,7 @@ pyasn1-modules==0.2.2
 python-dateutil==2.7.3
 pytz==2018.5
 regex==2016.1.10
-requests==2.19.1
+requests==2.20.0
 rsa==4.0
 six==1.11.0
 uritemplate==3.0.0
