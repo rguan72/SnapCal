@@ -25,3 +25,10 @@ htmlcov/
 
 # Makefile -- for security reasons
 Makefile
+
+# Private files
+credentials.json
+token.json
+client_secret.json
+quickstart.py
+hidden.json

@@ -1,28 +1,20 @@
-from flask import Flask, render_template, request
-from image_rec import Flier
 import io
 import base64
+import os
+import json
+from subprocess import call
+from flask import Flask, render_template, request, flash
+from image_rec import Flier
+from add_cal import add_event
+from add_cal import dates_exist
 
 app = Flask(__name__)
 
 @app.route('/')
 def camera():
     #image = request.args.get('image')
-	#print "IMAGE: ", image
-	return render_template('camera_cp.html')
-
-# @app.route('/submitted', methods=['POST'])
-# def submitted_form():
-# 	name = request.form['name']
-# 	email = request.form['email']
-# 	site = request.form['site_url']
-# 	comments = request.form['comments']
-# 	return render_template(
-# 	'submitted_form.html',
-# 	name=name,
-# 	email=email,
-# 	site=site,
-# 	comments=comments)
+    #print "IMAGE: ", image
+    return render_template('camera_cp.html')
 
 # Receive the image
 @app.route("/receive", methods=["POST"])
@@ -33,21 +25,31 @@ def route_receive():
     b64image = image[image.find("base64,")+7:]
     image = base64.b64decode(b64image)
     flier = Flier(image)
-    flier.ocr()
+    text = flier.ocr_text()
+    if dates_exist(text):
+        dates = dates_exist(text)
+        add_event(text)
     print "Grabbed image!"
-    save_undecoded_image(image, "image.jpg")
+    #save_undecoded_image(image, "image.jpg")
     print "Saved"
-    return 'success'
+    return "success"
 
 #TEMPORARY
 # Temporary thing for saving an undecoded b64 string
-def save_undecoded_image(b64data, fname):
-    with io.open(fname, "wb") as fh:
-        fh.write(base64.b64decode(b64data))
-        fh.close()
+# def save_undecoded_image(b64data, fname):
+#     with io.open(fname, "wb") as fh:
+#         fh.write(base64.b64decode(b64data))
+#         fh.close()
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
+    # credentials
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/richard/Downloads/SnapCalWeb-fb5b4f5bbee5.json"
+    with open("hidden.json") as read_file:
+        data = json.load(read_file)
+
+    # export secret key
+    app.secret_key = data["secret_key"]
     app.run(host  = "127.0.0.1",
             port  = 8080,
             debug = True

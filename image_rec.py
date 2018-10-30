@@ -1,3 +1,5 @@
+# Contains functions to do OCR on the given picture
+
 class Flier(object):
     def __init__(self, image):
         # from google.auth import app_engine
@@ -10,7 +12,7 @@ class Flier(object):
         #vision_client = vision.Client()
         self.image = image
 
-    def ocr(self):
+    def ocr_text(self):
         from google.cloud.vision import types
         from google.cloud import vision
 
