@@ -5,8 +5,7 @@ import json
 from subprocess import call
 from flask import Flask, render_template, request, flash
 from image_rec import Flier
-from add_cal import add_event
-from add_cal import dates_exist
+from add_cal import EventAdder
 
 app = Flask(__name__)
 
@@ -26,21 +25,14 @@ def route_receive():
     image = base64.b64decode(b64image)
     flier = Flier(image)
     text = flier.ocr_text()
-    if dates_exist(text):
-        dates = dates_exist(text)
-        add_event(text)
+    events = EventAdder.give_events(text)
+    if events:
+        for event in events:
+            EventAdder.add_event(event)
     print "Grabbed image!"
     #save_undecoded_image(image, "image.jpg")
     print "Saved"
     return "success"
-
-#TEMPORARY
-# Temporary thing for saving an undecoded b64 string
-# def save_undecoded_image(b64data, fname):
-#     with io.open(fname, "wb") as fh:
-#         fh.write(base64.b64decode(b64data))
-#         fh.close()
-
 
 if __name__ == "__main__":
     # credentials

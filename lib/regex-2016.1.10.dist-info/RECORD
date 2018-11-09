@@ -1,0 +1,12 @@
+_regex.so,sha256=EgHo5bqFsp2XTNe6gJgZ9FyjMMlVrRfghfnWE7vjIQI,1404176
+_regex_core.py,sha256=3r5FlBTtaoRSNPLzeRJAP06DGAIlvFZFOYrDQMZlbWg,136420
+regex.py,sha256=cxim_n9eQULqL3YPvK139DcOyV6b3g07dOYbJv54Yns,30482
+test_regex.py,sha256=D35k-JMAwq0YWDvOUwbtmydsImjSd4awhzbTVQyza04,170452
+regex-2016.1.10.dist-info/METADATA,sha256=6H-0ius6rgSdAV4VN_6CMTC2liq0jQaCOnJFUwwdzxs,37755
+regex-2016.1.10.dist-info/RECORD,,
+regex-2016.1.10.dist-info/WHEEL,sha256=THOELdoF0gz8Eu1fKvUoJv6AlhyCjQSuUxW0nm-XBW8,105
+regex-2016.1.10.dist-info/top_level.txt,sha256=tw5-CKEX1sGxIMsvl7R_WzlX0H-avTd1QAeuFxI2VeQ,36
+regex-2016.1.10.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+regex.pyc,,
+test_regex.pyc,,
+_regex_core.pyc,,
